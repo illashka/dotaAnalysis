@@ -12,11 +12,11 @@ heroes_url  = 'https://api.opendota.com/api/heroStats'
 
 players_data_response = requests.get(players_url)
 teams_data_response   = requests.get(teams_url)
-heroes_data_response  = requests.get(teams_url)
+heroes_data_response  = requests.get(heroes_url)
 
 df        = pd.DataFrame(players_data_response.json())
-df_heroes = pd.DataFrame(teams_data_response.json())
-df_teams  = pd.DataFrame(heroes_data_response.json())
+df_heroes = pd.DataFrame(heroes_data_response.json())
+df_teams  = pd.DataFrame(teams_data_response.json())
 
 # df.drop(columns = ['avatar', 'avatarmedium','avatarfull',
 #                   'profileurl', 'cheese', 'country_code', 'locked_until'], axis=1, inplace=True)
@@ -126,3 +126,4 @@ def dota_page():
 
 
     plots()
+
